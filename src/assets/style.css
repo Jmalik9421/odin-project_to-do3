@@ -3,3 +3,57 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+ul li {
+    list-style-type: none;
+}
+
+#app-container {
+    display: flex;
+    justify-content: space-between;
+}
+#project-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 20%; /* will take up 20% of the flexbox */
+    max-width: 20%; 
+    align-items: center;
+}
+#project-list {
+    width: 100%;
+}
+#project-list li {
+    background-color: cyan;
+    color: black;
+    padding: 0.5em;
+    margin: 0.1em;
+    font-weight: 500;
+    font-size: 1.1em;
+    font-family: 'Courier New', Courier, monospace;
+    transition: all 0.1s ease-in-out;
+}
+#project-list li:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+}
+#task-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: flex-start;
+    padding-left: 2em;
+    background-color: #e6e6e6;
+}
+
+.title {
+    text-align: center;
+    margin: 0.5em 0;
+}
+.text-btn {
+    border: 1px solid black;
+    background-color: transparent;
+    padding: 1em;
+    font-weight: bolder;
+    font-family: 'cursive';
+    margin: 0.5em 0;
+}

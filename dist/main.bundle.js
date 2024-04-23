@@ -25,7 +25,62 @@ ___CSS_LOADER_EXPORT___.push([module.id, `* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}`, "",{"version":3,"sources":["webpack://./src/assets/style.css"],"names":[],"mappings":"AAAA;IACI,SAAS;IACT,UAAU;IACV,sBAAsB;AAC1B","sourcesContent":["* {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}"],"sourceRoot":""}]);
+}
+
+ul li {
+    list-style-type: none;
+}
+
+#app-container {
+    display: flex;
+    justify-content: space-between;
+}
+#project-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 20%; /* will take up 20% of the flexbox */
+    max-width: 20%; 
+    align-items: center;
+}
+#project-list {
+    width: 100%;
+}
+#project-list li {
+    background-color: cyan;
+    color: black;
+    padding: 0.5em;
+    margin: 0.1em;
+    font-weight: 500;
+    font-size: 1.1em;
+    font-family: 'Courier New', Courier, monospace;
+    transition: all 0.1s ease-in-out;
+}
+#project-list li:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+}
+#task-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: flex-start;
+    padding-left: 2em;
+    background-color: #e6e6e6;
+}
+
+.title {
+    text-align: center;
+    margin: 0.5em 0;
+}
+.text-btn {
+    border: 1px solid black;
+    background-color: transparent;
+    padding: 1em;
+    font-weight: bolder;
+    font-family: 'cursive';
+    margin: 0.5em 0;
+}
+`, "",{"version":3,"sources":["webpack://./src/assets/style.css"],"names":[],"mappings":"AAAA;IACI,SAAS;IACT,UAAU;IACV,sBAAsB;AAC1B;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,aAAa;IACb,8BAA8B;AAClC;AACA;IACI,aAAa;IACb,sBAAsB;IACtB,eAAe,EAAE,oCAAoC;IACrD,cAAc;IACd,mBAAmB;AACvB;AACA;IACI,WAAW;AACf;AACA;IACI,sBAAsB;IACtB,YAAY;IACZ,cAAc;IACd,aAAa;IACb,gBAAgB;IAChB,gBAAgB;IAChB,8CAA8C;IAC9C,gCAAgC;AACpC;AACA;IACI,2BAA2B;IAC3B,eAAe;AACnB;AACA;IACI,aAAa;IACb,sBAAsB;IACtB,YAAY;IACZ,uBAAuB;IACvB,iBAAiB;IACjB,yBAAyB;AAC7B;;AAEA;IACI,kBAAkB;IAClB,eAAe;AACnB;AACA;IACI,uBAAuB;IACvB,6BAA6B;IAC7B,YAAY;IACZ,mBAAmB;IACnB,sBAAsB;IACtB,eAAe;AACnB","sourcesContent":["* {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\nul li {\n    list-style-type: none;\n}\n\n#app-container {\n    display: flex;\n    justify-content: space-between;\n}\n#project-container {\n    display: flex;\n    flex-direction: column;\n    flex-basis: 20%; /* will take up 20% of the flexbox */\n    max-width: 20%; \n    align-items: center;\n}\n#project-list {\n    width: 100%;\n}\n#project-list li {\n    background-color: cyan;\n    color: black;\n    padding: 0.5em;\n    margin: 0.1em;\n    font-weight: 500;\n    font-size: 1.1em;\n    font-family: 'Courier New', Courier, monospace;\n    transition: all 0.1s ease-in-out;\n}\n#project-list li:hover {\n    background-color: lightgrey;\n    cursor: pointer;\n}\n#task-container {\n    display: flex;\n    flex-direction: column;\n    flex-grow: 1;\n    align-items: flex-start;\n    padding-left: 2em;\n    background-color: #e6e6e6;\n}\n\n.title {\n    text-align: center;\n    margin: 0.5em 0;\n}\n.text-btn {\n    border: 1px solid black;\n    background-color: transparent;\n    padding: 1em;\n    font-weight: bolder;\n    font-family: 'cursive';\n    margin: 0.5em 0;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
