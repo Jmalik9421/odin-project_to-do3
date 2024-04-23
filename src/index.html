@@ -6,29 +6,36 @@
     <title>Odin Project To-Do App</title>
 </head>
 <body>
-    <h1 class="title">Task Master</h1>
-    <button class="text-btn" id="new-project-btn">+ NEW PROJECT</button>
+    <div id="app-container">
+        <div id="project-container">
+            <h1 class="title">Task Master</h1>
+            <button class="text-btn" id="new-project-btn">+ NEW PROJECT</button>
+        
+            <ul>
+                <li>My Project 1</li>
+                <li>My Project 2</li>
+                <li>My Project 3</li>
+            </ul>
 
-    <ul>
-        <li>My Project 1</li>
-        <li>My Project 2</li>
-        <li>My Project 3</li>
-    </ul>
-
-    <h1 class="title">
-        My Project
-        <button class="options-btn">change to 3 dots</button>
-    </h1>
-    <div>
-        <button>Edit</button>
-        <button>Delete</button>
+        </div>
+    
+        <div id="task-container">
+            <h1 class="title">
+                My Project
+                <button class="options-btn">change to 3 dots</button>
+            </h1>
+            <div>
+                <button>Edit</button>
+                <button>Delete</button>
+            </div>
+            <h3 class="subtitle">Rest and recreation.</h3>
+            <button class="text-btn" id="new-task-btn">+ NEW TASK</button>
+            <ul>
+                <li><button>change to checkmark</button>My Task 1<button>change to bin</button></li>
+                <li><button>change to checkmark</button>My Task 2<button>change to bin</button></li>
+                <li><button>change to checkmark</button>My Task 3<button>change to bin</button></li>
+            </ul>
+        </div>
     </div>
-    <h3 class="subtitle">Rest and recreation.</h3>
-    <button class="text-btn" id="new-task-btn">+ NEW TASK</button>
-    <ul>
-        <li><button>change to checkmark</button>My Task 1<button>change to bin</button></li>
-        <li><button>change to checkmark</button>My Task 2<button>change to bin</button></li>
-        <li><button>change to checkmark</button>My Task 3<button>change to bin</button></li>
-    </ul>
 </body>
 </html>
