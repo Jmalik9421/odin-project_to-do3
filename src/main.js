@@ -31,6 +31,7 @@ const projectList = document.createElement('ul');
 projectList.id = 'project-list';
 projectContainer.appendChild(projectList);
 
+// project-container > new-project-btn | logic
 newProjectBtn.addEventListener('click', (e) => {
     const projectListItem = document.createElement('li');
     projectListItem.textContent = 'My Project 1';
@@ -85,6 +86,7 @@ optionsDeleteBtn.id = 'options-delete-btn';
 optionsDeleteBtn.textContent = 'Delete';
 optionsMenu.appendChild(optionsDeleteBtn);
 
+// task-container > options-btn | logic
 optionsBtn.addEventListener('click', () => {
     optionsMenu.classList.toggle('hide');
     optionsEditBtn.classList.toggle('hide');
@@ -110,27 +112,71 @@ taskList.id = 'task-list';
 taskContainer.appendChild(taskList);
 
 // task-container > task-list > list-item
-for (let i=0; i<3; i++) {
+// for (let i=0; i<3; i++) {
+//     const taskListItem = document.createElement('li');
+
+//     const taskCompletionBtn = document.createElement('button');
+//     taskCompletionBtn.classList.add('task-completion-btn');
+    
+//     const taskText = document.createElement('p');
+//     taskText.textContent = `My Task ${i+1}`;
+    
+//     const deleteBtn = document.createElement('button');
+//     deleteBtn.classList.add('delete-btn');
+
+//     if (i===0) {
+//         taskListItem.classList.add('checked');
+//         taskCompletionBtn.classList.add('task-completion-btn-checked');
+//         taskText.classList.add('task-text-checked');
+//         deleteBtn.classList.add('delete-btn-checked');
+//     };
+
+//     taskListItem.appendChild(taskCompletionBtn);
+//     taskListItem.appendChild(taskText);
+//     taskListItem.appendChild(deleteBtn);
+//     taskList.appendChild(taskListItem);
+// };
+
+// task-container > new-task-btn | logic
+function renderTaskListItem() {
     const taskListItem = document.createElement('li');
 
     const taskCompletionBtn = document.createElement('button');
     taskCompletionBtn.classList.add('task-completion-btn');
     
     const taskText = document.createElement('p');
-    taskText.textContent = `My Task ${i+1}`;
+    taskText.textContent = `My Task 1`;
     
     const deleteBtn = document.createElement('button');
     deleteBtn.classList.add('delete-btn');
-
-    if (i===0) {
-        taskListItem.classList.add('checked');
-        taskCompletionBtn.classList.add('task-completion-btn-checked');
-        taskText.classList.add('task-text-checked');
-        deleteBtn.classList.add('delete-btn-checked');
-    };
 
     taskListItem.appendChild(taskCompletionBtn);
     taskListItem.appendChild(taskText);
     taskListItem.appendChild(deleteBtn);
     taskList.appendChild(taskListItem);
+
+    return { taskListItem, taskCompletionBtn, taskText, deleteBtn };
+};
+
+function toggleTaskCompletion (taskListItem, taskCompletionBtn, taskText, deleteBtn) {
+    taskListItem.classList.add('checked');
+    taskCompletionBtn.classList.add('task-completion-btn-checked');
+    taskText.classList.add('task-text-checked');
+    deleteBtn.classList.add('delete-btn-checked');
+};
+
+
+try {
+    newTaskBtn.addEventListener('click', () => {
+        const { taskListItem, taskCompletionBtn, taskText, deleteBtn } = renderTaskListItem();
+        taskCompletionBtn.addEventListener('click', () => {
+            taskListItem.classList.toggle('checked');
+            taskCompletionBtn.classList.toggle('task-completion-btn-checked');
+            taskText.classList.toggle('task-text-checked');
+            deleteBtn.classList.toggle('delete-btn-checked');
+        });
+    });
+}
+catch (err) {
+    console.error('task-list-item does not exist');
 };
