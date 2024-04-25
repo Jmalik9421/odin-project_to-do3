@@ -16,17 +16,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
 // Imports
 
 
+
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ./imgs/checkmark.png */ "./src/assets/imgs/checkmark.png"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ./imgs/bin-black.png */ "./src/assets/imgs/bin-black.png"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ./imgs/bin-grey.png */ "./src/assets/imgs/bin-grey.png"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_3___ = new URL(/* asset import */ __webpack_require__(/*! ./imgs/options-btn-grey.png */ "./src/assets/imgs/options-btn-grey.png"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_4___ = new URL(/* asset import */ __webpack_require__(/*! ./imgs/options-btn-black.png */ "./src/assets/imgs/options-btn-black.png"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
+var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_2___);
+var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_3___);
+var ___CSS_LOADER_URL_REPLACEMENT_4___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_4___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 ul li {
     list-style-type: none;
 }
@@ -34,13 +46,17 @@ ul li {
 #app-container {
     display: flex;
     justify-content: space-between;
+    min-height: 100vh;
 }
 #project-container {
     display: flex;
     flex-direction: column;
-    flex-basis: 20%; /* will take up 20% of the flexbox */
+    flex-basis: 20%;
     max-width: 20%; 
     align-items: center;
+}
+#project-container > .title {
+    flex-basis: 1.5em;
 }
 #project-list {
     width: 100%;
@@ -53,7 +69,6 @@ ul li {
     font-weight: 500;
     font-size: 1.1em;
     font-family: 'Courier New', Courier, monospace;
-    transition: all 0.1s ease-in-out;
 }
 #project-list li:hover {
     background-color: lightgrey;
@@ -65,12 +80,68 @@ ul li {
     flex-grow: 1;
     align-items: flex-start;
     padding-left: 2em;
-    background-color: #e6e6e6;
+    background-color: rgba(242, 242, 242, 0.8);
+}
+#task-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#task-list li {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    padding: 1em;
+    margin: 0.1em;
+    font-size: 1.1em;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+.checked {
+    background-color: lightgrey;
+}
+.task-completion-btn {
+    justify-self: start;
+    width: 1.5em;
+    height: 1.5em;
+    border: 1px solid grey;
+    background-color: transparent;
+}
+.task-completion-btn:hover {
+    background-color: lightgrey;
+}
+.task-completion-btn-checked {
+    width: 1.5em;
+    height: 1.5em;
+    background-image: url(${___CSS_LOADER_URL_REPLACEMENT_0___});
+    background-size: cover;
+    background-position: center;
+    border: none;
+}
+.task-completion-btn-checked{
+    background-color: transparent;
+}
+.task-text-checked {
+    text-decoration: line-through;
+}
+.delete-btn {
+    justify-self: end;
+    width: 1.5em;
+    height: 1.5em;
+    background-image: url(${___CSS_LOADER_URL_REPLACEMENT_1___});
+    background-size: cover;
+    background-position: center;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+.delete-btn-checked {
+    background-image: url(${___CSS_LOADER_URL_REPLACEMENT_2___});
 }
 
-.title {
-    text-align: center;
-    margin: 0.5em 0;
+#task-list li p {
+    flex-grow: 1;
+    margin: 0 1em;
 }
 .text-btn {
     border: 1px solid black;
@@ -79,8 +150,70 @@ ul li {
     font-weight: bolder;
     font-family: 'cursive';
     margin: 0.5em 0;
+    min-width: 10em;
 }
-`, "",{"version":3,"sources":["webpack://./src/assets/style.css"],"names":[],"mappings":"AAAA;IACI,SAAS;IACT,UAAU;IACV,sBAAsB;AAC1B;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,aAAa;IACb,8BAA8B;AAClC;AACA;IACI,aAAa;IACb,sBAAsB;IACtB,eAAe,EAAE,oCAAoC;IACrD,cAAc;IACd,mBAAmB;AACvB;AACA;IACI,WAAW;AACf;AACA;IACI,sBAAsB;IACtB,YAAY;IACZ,cAAc;IACd,aAAa;IACb,gBAAgB;IAChB,gBAAgB;IAChB,8CAA8C;IAC9C,gCAAgC;AACpC;AACA;IACI,2BAA2B;IAC3B,eAAe;AACnB;AACA;IACI,aAAa;IACb,sBAAsB;IACtB,YAAY;IACZ,uBAAuB;IACvB,iBAAiB;IACjB,yBAAyB;AAC7B;;AAEA;IACI,kBAAkB;IAClB,eAAe;AACnB;AACA;IACI,uBAAuB;IACvB,6BAA6B;IAC7B,YAAY;IACZ,mBAAmB;IACnB,sBAAsB;IACtB,eAAe;AACnB","sourcesContent":["* {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\nul li {\n    list-style-type: none;\n}\n\n#app-container {\n    display: flex;\n    justify-content: space-between;\n}\n#project-container {\n    display: flex;\n    flex-direction: column;\n    flex-basis: 20%; /* will take up 20% of the flexbox */\n    max-width: 20%; \n    align-items: center;\n}\n#project-list {\n    width: 100%;\n}\n#project-list li {\n    background-color: cyan;\n    color: black;\n    padding: 0.5em;\n    margin: 0.1em;\n    font-weight: 500;\n    font-size: 1.1em;\n    font-family: 'Courier New', Courier, monospace;\n    transition: all 0.1s ease-in-out;\n}\n#project-list li:hover {\n    background-color: lightgrey;\n    cursor: pointer;\n}\n#task-container {\n    display: flex;\n    flex-direction: column;\n    flex-grow: 1;\n    align-items: flex-start;\n    padding-left: 2em;\n    background-color: #e6e6e6;\n}\n\n.title {\n    text-align: center;\n    margin: 0.5em 0;\n}\n.text-btn {\n    border: 1px solid black;\n    background-color: transparent;\n    padding: 1em;\n    font-weight: bolder;\n    font-family: 'cursive';\n    margin: 0.5em 0;\n}\n"],"sourceRoot":""}]);
+.title {
+    text-align: center;
+    margin: 0.5em 0;
+}
+.subtitle {
+    font-size: 1.3em;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.7);
+}
+.title-container {
+    display: flex;
+    flex-basis: 1.5em;
+    flex-direction: column;
+    align-items: start;
+    max-height: 5em;
+}
+.title-container-secondary {
+    display: flex;
+    align-items: end;
+}
+.title-container-secondary > .title {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+}
+.options-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.options-btn {
+    min-width: 3em;
+    min-height: 3em;
+    background-image: url(${___CSS_LOADER_URL_REPLACEMENT_3___});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.options-btn:hover {
+    background-image: url(${___CSS_LOADER_URL_REPLACEMENT_4___});
+}
+.options-menu {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    position: absolute;
+    left: 1em;
+    top: 100%;
+}
+.options-menu button {
+    padding: 1em 2em;
+    font-weight: bolder;
+    font-size: 1em;
+    background-color: white;
+    outline: none;
+    border: none;
+}
+.options-menu button:hover {
+    cursor: pointer;
+    background-color: lightgrey;
+}
+`, "",{"version":3,"sources":["webpack://./src/assets/style.css"],"names":[],"mappings":"AAAA;IACI,SAAS;IACT,UAAU;IACV,sBAAsB;AAC1B;AACA;IACI,qBAAqB;AACzB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,iBAAiB;AACrB;AACA;IACI,aAAa;IACb,sBAAsB;IACtB,eAAe;IACf,cAAc;IACd,mBAAmB;AACvB;AACA;IACI,iBAAiB;AACrB;AACA;IACI,WAAW;AACf;AACA;IACI,sBAAsB;IACtB,YAAY;IACZ,cAAc;IACd,aAAa;IACb,gBAAgB;IAChB,gBAAgB;IAChB,8CAA8C;AAClD;AACA;IACI,2BAA2B;IAC3B,eAAe;AACnB;AACA;IACI,aAAa;IACb,sBAAsB;IACtB,YAAY;IACZ,uBAAuB;IACvB,iBAAiB;IACjB,0CAA0C;AAC9C;AACA;IACI,WAAW;IACX,aAAa;IACb,sBAAsB;AAC1B;AACA;IACI,aAAa;IACb,mBAAmB;IACnB,UAAU;IACV,YAAY;IACZ,aAAa;IACb,gBAAgB;IAChB,sBAAsB;IACtB,kBAAkB;AACtB;AACA;IACI,2BAA2B;AAC/B;AACA;IACI,mBAAmB;IACnB,YAAY;IACZ,aAAa;IACb,sBAAsB;IACtB,6BAA6B;AACjC;AACA;IACI,2BAA2B;AAC/B;AACA;IACI,YAAY;IACZ,aAAa;IACb,yDAA6C;IAC7C,sBAAsB;IACtB,2BAA2B;IAC3B,YAAY;AAChB;AACA;IACI,6BAA6B;AACjC;AACA;IACI,6BAA6B;AACjC;AACA;IACI,iBAAiB;IACjB,YAAY;IACZ,aAAa;IACb,yDAA6C;IAC7C,sBAAsB;IACtB,2BAA2B;IAC3B,6BAA6B;IAC7B,aAAa;IACb,YAAY;AAChB;AACA;IACI,yDAA4C;AAChD;;AAEA;IACI,YAAY;IACZ,aAAa;AACjB;AACA;IACI,uBAAuB;IACvB,6BAA6B;IAC7B,YAAY;IACZ,mBAAmB;IACnB,sBAAsB;IACtB,eAAe;IACf,eAAe;AACnB;AACA;IACI,kBAAkB;IAClB,eAAe;AACnB;AACA;IACI,gBAAgB;IAChB,gBAAgB;IAChB,yBAAyB;AAC7B;AACA;IACI,aAAa;IACb,iBAAiB;IACjB,sBAAsB;IACtB,kBAAkB;IAClB,eAAe;AACnB;AACA;IACI,aAAa;IACb,gBAAgB;AACpB;AACA;IACI,iBAAiB;IACjB,gBAAgB;AACpB;AACA;IACI,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;AACA;IACI,cAAc;IACd,eAAe;IACf,yDAAoD;IACpD,sBAAsB;IACtB,2BAA2B;IAC3B,4BAA4B;AAChC;AACA;IACI,yDAAqD;AACzD;AACA;IACI,aAAa;IACb,sBAAsB;IACtB,uBAAuB;IACvB,kBAAkB;IAClB,SAAS;IACT,SAAS;AACb;AACA;IACI,gBAAgB;IAChB,mBAAmB;IACnB,cAAc;IACd,uBAAuB;IACvB,aAAa;IACb,YAAY;AAChB;AACA;IACI,eAAe;IACf,2BAA2B;AAC/B","sourcesContent":["* {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\nul li {\n    list-style-type: none;\n}\n\n#app-container {\n    display: flex;\n    justify-content: space-between;\n    min-height: 100vh;\n}\n#project-container {\n    display: flex;\n    flex-direction: column;\n    flex-basis: 20%;\n    max-width: 20%; \n    align-items: center;\n}\n#project-container > .title {\n    flex-basis: 1.5em;\n}\n#project-list {\n    width: 100%;\n}\n#project-list li {\n    background-color: cyan;\n    color: black;\n    padding: 0.5em;\n    margin: 0.1em;\n    font-weight: 500;\n    font-size: 1.1em;\n    font-family: 'Courier New', Courier, monospace;\n}\n#project-list li:hover {\n    background-color: lightgrey;\n    cursor: pointer;\n}\n#task-container {\n    display: flex;\n    flex-direction: column;\n    flex-grow: 1;\n    align-items: flex-start;\n    padding-left: 2em;\n    background-color: rgba(242, 242, 242, 0.8);\n}\n#task-list {\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n}\n#task-list li {\n    display: flex;\n    align-items: center;\n    width: 80%;\n    padding: 1em;\n    margin: 0.1em;\n    font-size: 1.1em;\n    border: 1px solid grey;\n    border-radius: 5px;\n}\n.checked {\n    background-color: lightgrey;\n}\n.task-completion-btn {\n    justify-self: start;\n    width: 1.5em;\n    height: 1.5em;\n    border: 1px solid grey;\n    background-color: transparent;\n}\n.task-completion-btn:hover {\n    background-color: lightgrey;\n}\n.task-completion-btn-checked {\n    width: 1.5em;\n    height: 1.5em;\n    background-image: url('./imgs/checkmark.png');\n    background-size: cover;\n    background-position: center;\n    border: none;\n}\n.task-completion-btn-checked{\n    background-color: transparent;\n}\n.task-text-checked {\n    text-decoration: line-through;\n}\n.delete-btn {\n    justify-self: end;\n    width: 1.5em;\n    height: 1.5em;\n    background-image: url('./imgs/bin-black.png');\n    background-size: cover;\n    background-position: center;\n    background-color: transparent;\n    outline: none;\n    border: none;\n}\n.delete-btn-checked {\n    background-image: url('./imgs/bin-grey.png');\n}\n\n#task-list li p {\n    flex-grow: 1;\n    margin: 0 1em;\n}\n.text-btn {\n    border: 1px solid black;\n    background-color: transparent;\n    padding: 1em;\n    font-weight: bolder;\n    font-family: 'cursive';\n    margin: 0.5em 0;\n    min-width: 10em;\n}\n.title {\n    text-align: center;\n    margin: 0.5em 0;\n}\n.subtitle {\n    font-size: 1.3em;\n    font-weight: 500;\n    color: rgba(0, 0, 0, 0.7);\n}\n.title-container {\n    display: flex;\n    flex-basis: 1.5em;\n    flex-direction: column;\n    align-items: start;\n    max-height: 5em;\n}\n.title-container-secondary {\n    display: flex;\n    align-items: end;\n}\n.title-container-secondary > .title {\n    margin-top: 0.5em;\n    margin-bottom: 0;\n}\n.options-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    position: relative;\n}\n.options-btn {\n    min-width: 3em;\n    min-height: 3em;\n    background-image: url('./imgs/options-btn-grey.png');\n    background-size: cover;\n    background-position: center;\n    background-repeat: no-repeat;\n}\n.options-btn:hover {\n    background-image: url('./imgs/options-btn-black.png');\n}\n.options-menu {\n    display: flex;\n    flex-direction: column;\n    border: 1px solid black;\n    position: absolute;\n    left: 1em;\n    top: 100%;\n}\n.options-menu button {\n    padding: 1em 2em;\n    font-weight: bolder;\n    font-size: 1em;\n    background-color: white;\n    outline: none;\n    border: none;\n}\n.options-menu button:hover {\n    cursor: pointer;\n    background-color: lightgrey;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -177,6 +310,41 @@ module.exports = function (cssWithMappingToString) {
     }
   };
   return list;
+};
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/getUrl.js":
+/*!********************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/getUrl.js ***!
+  \********************************************************/
+/***/ ((module) => {
+
+
+
+module.exports = function (url, options) {
+  if (!options) {
+    options = {};
+  }
+  if (!url) {
+    return url;
+  }
+  url = String(url.__esModule ? url.default : url);
+
+  // If url is already wrapped in quotes, remove them
+  if (/^['"].*['"]$/.test(url)) {
+    url = url.slice(1, -1);
+  }
+  if (options.hash) {
+    url += options.hash;
+  }
+
+  // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+  if (/["'() \t\n]|(%20)/.test(url) || options.needQuotes) {
+    return "\"".concat(url.replace(/"/g, '\\"').replace(/\n/g, "\\n"), "\"");
+  }
+  return url;
 };
 
 /***/ }),
@@ -523,6 +691,56 @@ function styleTagTransform(css, styleElement) {
 }
 module.exports = styleTagTransform;
 
+/***/ }),
+
+/***/ "./src/assets/imgs/bin-black.png":
+/*!***************************************!*\
+  !*** ./src/assets/imgs/bin-black.png ***!
+  \***************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "c4f0af28c10a19fbeee1.png";
+
+/***/ }),
+
+/***/ "./src/assets/imgs/bin-grey.png":
+/*!**************************************!*\
+  !*** ./src/assets/imgs/bin-grey.png ***!
+  \**************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "a6fd29509719f079bfd7.png";
+
+/***/ }),
+
+/***/ "./src/assets/imgs/checkmark.png":
+/*!***************************************!*\
+  !*** ./src/assets/imgs/checkmark.png ***!
+  \***************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "a5f18e9b36d7b0d9b8c6.png";
+
+/***/ }),
+
+/***/ "./src/assets/imgs/options-btn-black.png":
+/*!***********************************************!*\
+  !*** ./src/assets/imgs/options-btn-black.png ***!
+  \***********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "f587c2b8be786d80be09.png";
+
+/***/ }),
+
+/***/ "./src/assets/imgs/options-btn-grey.png":
+/*!**********************************************!*\
+  !*** ./src/assets/imgs/options-btn-grey.png ***!
+  \**********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "3e14968fb2282c60d6e9.png";
+
 /***/ })
 
 /******/ 	});
@@ -551,6 +769,9 @@ module.exports = styleTagTransform;
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -576,6 +797,18 @@ module.exports = styleTagTransform;
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -590,6 +823,55 @@ module.exports = styleTagTransform;
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		__webpack_require__.b = document.baseURI || self.location.href;
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"main": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		// no on chunks loaded
+/******/ 		
+/******/ 		// no jsonp function
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */

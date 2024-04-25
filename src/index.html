@@ -19,20 +19,36 @@
         </div>
     
         <div id="task-container">
-            <h1 class="title">
-                My Project
-                <button class="options-btn">change to 3 dots</button>
-            </h1>
-            <div>
-                <button>Edit</button>
-                <button>Delete</button>
+            <div class="title-container">
+                <div class="title-container-secondary">
+                    <h1 class="title">My Project</h1>
+                    <div class="options-container">
+                        <div class="options-btn"></div>
+                        <div class="options-menu">
+                            <button>Edit</button>
+                            <button>Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <p class="subtitle">Rest and recreation.</p>
             </div>
-            <h3 class="subtitle">Rest and recreation.</h3>
             <button class="text-btn" id="new-task-btn">+ NEW TASK</button>
-            <ul>
-                <li><button>change to checkmark</button>My Task 1<button>change to bin</button></li>
-                <li><button>change to checkmark</button>My Task 2<button>change to bin</button></li>
-                <li><button>change to checkmark</button>My Task 3<button>change to bin</button></li>
+            <ul id="task-list">
+                <li class="checked">
+                    <button class="task-completion-btn task-completion-btn-checked"></button>
+                    <p class="task-text-checked">My Task 1</p>
+                    <button class="delete-btn delete-btn-checked"></button>
+                </li>
+                <li>
+                    <button class="task-completion-btn"></button>
+                    <p>My Task 1</p>
+                    <button class="delete-btn"></button>
+                </li>
+                <li>
+                    <button class="task-completion-btn"></button>
+                    <p>My Task 1</p>
+                    <button class="delete-btn"></button>
+                </li>
             </ul>
         </div>
     </div>
