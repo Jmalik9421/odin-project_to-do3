@@ -969,17 +969,19 @@ optionsContainer.appendChild(optionsBtn);
 
 // task-container > title-container > title-container-secondary > options-container > options-menu
 const optionsMenu = document.createElement('div');
-optionsMenu.classList.add('options-menu');
+optionsMenu.classList.add('options-menu', 'hide'); // hide by default
 optionsContainer.appendChild(optionsMenu);
 
 // task-container > title-container > title-container-secondary > options-container > options-menu > edit-btn
 const optionsEditBtn = document.createElement('button');
+optionsEditBtn.classList.add('hide'); // hide by default
 optionsEditBtn.id = 'options-edit-btn';
 optionsEditBtn.textContent = 'Edit';
 optionsMenu.appendChild(optionsEditBtn);
 
 // task-container > title-container > title-container-secondary > options-container > options-menu > delete-btn
 const optionsDeleteBtn = document.createElement('button');
+optionsDeleteBtn.classList.add('hide'); // hide by default
 optionsDeleteBtn.id = 'options-delete-btn';
 optionsDeleteBtn.textContent = 'Delete';
 optionsMenu.appendChild(optionsDeleteBtn);
@@ -1009,32 +1011,6 @@ const taskList = document.createElement('ul');
 taskList.id = 'task-list';
 taskContainer.appendChild(taskList);
 
-// task-container > task-list > list-item
-// for (let i=0; i<3; i++) {
-//     const taskListItem = document.createElement('li');
-
-//     const taskCompletionBtn = document.createElement('button');
-//     taskCompletionBtn.classList.add('task-completion-btn');
-    
-//     const taskText = document.createElement('p');
-//     taskText.textContent = `My Task ${i+1}`;
-    
-//     const deleteBtn = document.createElement('button');
-//     deleteBtn.classList.add('delete-btn');
-
-//     if (i===0) {
-//         taskListItem.classList.add('checked');
-//         taskCompletionBtn.classList.add('task-completion-btn-checked');
-//         taskText.classList.add('task-text-checked');
-//         deleteBtn.classList.add('delete-btn-checked');
-//     };
-
-//     taskListItem.appendChild(taskCompletionBtn);
-//     taskListItem.appendChild(taskText);
-//     taskListItem.appendChild(deleteBtn);
-//     taskList.appendChild(taskListItem);
-// };
-
 // task-container > new-task-btn | logic
 function renderTaskListItem() {
     const taskListItem = document.createElement('li');
@@ -1055,14 +1031,6 @@ function renderTaskListItem() {
 
     return { taskListItem, taskCompletionBtn, taskText, deleteBtn };
 };
-
-function toggleTaskCompletion (taskListItem, taskCompletionBtn, taskText, deleteBtn) {
-    taskListItem.classList.add('checked');
-    taskCompletionBtn.classList.add('task-completion-btn-checked');
-    taskText.classList.add('task-text-checked');
-    deleteBtn.classList.add('delete-btn-checked');
-};
-
 
 try {
     newTaskBtn.addEventListener('click', () => {

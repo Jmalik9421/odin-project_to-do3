@@ -71,17 +71,19 @@ optionsContainer.appendChild(optionsBtn);
 
 // task-container > title-container > title-container-secondary > options-container > options-menu
 const optionsMenu = document.createElement('div');
-optionsMenu.classList.add('options-menu');
+optionsMenu.classList.add('options-menu', 'hide'); // hide by default
 optionsContainer.appendChild(optionsMenu);
 
 // task-container > title-container > title-container-secondary > options-container > options-menu > edit-btn
 const optionsEditBtn = document.createElement('button');
+optionsEditBtn.classList.add('hide'); // hide by default
 optionsEditBtn.id = 'options-edit-btn';
 optionsEditBtn.textContent = 'Edit';
 optionsMenu.appendChild(optionsEditBtn);
 
 // task-container > title-container > title-container-secondary > options-container > options-menu > delete-btn
 const optionsDeleteBtn = document.createElement('button');
+optionsDeleteBtn.classList.add('hide'); // hide by default
 optionsDeleteBtn.id = 'options-delete-btn';
 optionsDeleteBtn.textContent = 'Delete';
 optionsMenu.appendChild(optionsDeleteBtn);
