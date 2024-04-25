@@ -85,6 +85,12 @@ optionsDeleteBtn.id = 'options-delete-btn';
 optionsDeleteBtn.textContent = 'Delete';
 optionsMenu.appendChild(optionsDeleteBtn);
 
+optionsBtn.addEventListener('click', () => {
+    optionsMenu.classList.toggle('hide');
+    optionsEditBtn.classList.toggle('hide');
+    optionsDeleteBtn.classList.toggle('hide');
+});
+
 // task-conatiner > title-container > subtitle
 const subtitle = document.createElement('p');
 subtitle.classList.add('subtitle');

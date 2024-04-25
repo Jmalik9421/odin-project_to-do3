@@ -161,7 +161,7 @@ button:hover {
 }
 .options-btn:hover {
     background-image: url('./imgs/options-btn-black.png');
-    transform: scale(0.75);
+    transform: scale(0.75); /* black png is bigger than grey png so appears larger, scaling down to make it same size */
 }
 .options-menu {
     display: flex;
@@ -181,4 +181,7 @@ button:hover {
 }
 .options-menu button:hover {
     background-color: lightgrey;
+}
+.hide {
+    display: none;
 }
