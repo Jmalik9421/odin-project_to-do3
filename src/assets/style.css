@@ -161,6 +161,7 @@ button:hover {
 }
 .options-btn:hover {
     background-image: url('./imgs/options-btn-black.png');
+    transform: scale(0.75);
 }
 .options-menu {
     display: flex;

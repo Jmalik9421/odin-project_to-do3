@@ -37,7 +37,6 @@ newProjectBtn.addEventListener('click', (e) => {
     projectList.appendChild(projectListItem);
 });
 
-
 // task-container
 const taskContainer = document.createElement('div');
 taskContainer.id = 'task-container';
