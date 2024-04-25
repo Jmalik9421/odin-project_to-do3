@@ -925,10 +925,12 @@ const projectList = document.createElement('ul');
 projectList.id = 'project-list';
 projectContainer.appendChild(projectList);
 
-// project-container > project-list > list-item
-const projectListItem = document.createElement('li');
-projectListItem.textContent = 'My Project 1';
-projectList.appendChild(projectListItem);
+newProjectBtn.addEventListener('click', (e) => {
+    const projectListItem = document.createElement('li');
+    projectListItem.textContent = 'My Project 1';
+    projectList.appendChild(projectListItem);
+});
+
 
 // task-container
 const taskContainer = document.createElement('div');
@@ -1016,13 +1018,11 @@ for (let i=0; i<3; i++) {
         deleteBtn.classList.add('delete-btn-checked');
     };
 
-
     taskListItem.appendChild(taskCompletionBtn);
     taskListItem.appendChild(taskText);
     taskListItem.appendChild(deleteBtn);
     taskList.appendChild(taskListItem);
 };
-
 
 })();
 
