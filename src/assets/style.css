@@ -6,6 +6,9 @@
 ul li {
     list-style-type: none;
 }
+button:hover {
+    cursor: pointer;
+}
 
 #app-container {
     display: flex;
@@ -36,7 +39,6 @@ ul li {
 }
 #project-list li:hover {
     background-color: lightgrey;
-    cursor: pointer;
 }
 #task-container {
     display: flex;
@@ -116,6 +118,9 @@ ul li {
     margin: 0.5em 0;
     min-width: 10em;
 }
+.text-btn:hover {
+    background-color: lightgray;
+}
 .title {
     text-align: center;
     margin: 0.5em 0;
@@ -174,6 +179,5 @@ ul li {
     border: none;
 }
 .options-menu button:hover {
-    cursor: pointer;
     background-color: lightgrey;
 }
