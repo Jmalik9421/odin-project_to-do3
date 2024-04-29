@@ -10,7 +10,7 @@ body.appendChild(appContainer);
 
 // modal
 const modalContainer = document.createElement('div');
-modalContainer.classList.add('modal-container');
+modalContainer.classList.add('modal-container', 'hide');
 appContainer.appendChild(modalContainer);
 
 // modal > modal-content
@@ -65,6 +65,9 @@ modalDescContainer.appendChild(descInput);
 const cancelBtn = document.createElement('button');
 cancelBtn.classList.add('cancel-btn');
 cancelBtn.textContent = 'Cancel';
+cancelBtn.addEventListener('click', () => {
+    modalContainer.classList.add('hide');
+});
 modal.appendChild(cancelBtn);
 
 // modal-container > modal > submit-btn;
@@ -98,9 +101,10 @@ projectContainer.appendChild(projectList);
 
 // project-container > new-project-btn | logic
 newProjectBtn.addEventListener('click', (e) => {
-    const projectListItem = document.createElement('li');
-    projectListItem.textContent = 'My Project 1';
-    projectList.appendChild(projectListItem);
+    modalContainer.classList.remove('hide');
+    // const projectListItem = document.createElement('li');
+    // projectListItem.textContent = 'My Project 1';
+    // projectList.appendChild(projectListItem);
 });
 
 // task-container
