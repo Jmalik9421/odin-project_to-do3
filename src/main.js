@@ -8,6 +8,71 @@ const appContainer = document.createElement('div');
 appContainer.id = 'app-container';
 body.appendChild(appContainer);
 
+// modal
+const modalContainer = document.createElement('div');
+modalContainer.classList.add('modal-container');
+appContainer.appendChild(modalContainer);
+
+// modal > modal-content
+const modal = document.createElement('div');
+modal.classList.add('modal');
+modalContainer.appendChild(modal);
+
+// modal-container > modal > title-container
+const modalTitleContainer = document.createElement('div');
+modalTitleContainer.classList.add('modal-title-container');
+modal.appendChild(modalTitleContainer);
+
+// modal-container > modal > title-container > title-label
+const titleLabel = document.createElement('label');
+titleLabel.classList.add('modal-title-label');
+titleLabel.for = 'title-input';
+titleLabel.textContent = 'Title';
+modalTitleContainer.appendChild(titleLabel);
+
+// modal-container > modal > title-container > title-input
+const titleInput = document.createElement('input');
+titleInput.classList.add('modal-title-input');
+titleInput.id = 'title-input';
+titleInput.type = 'text';
+titleInput.name = 'project-title';
+titleInput.placeholder = 'New project title...';
+titleInput.required = true;
+modalTitleContainer.appendChild(titleInput);
+
+// modal-container > modal > description-container
+const modalDescContainer = document.createElement('div');
+modalDescContainer.classList.add('modal-desc-container');
+modal.appendChild(modalDescContainer);
+
+// modal-container > modal > description-container > description-label
+const descLabel = document.createElement('label');
+descLabel.classList.add('modal-desc-label');
+descLabel.for = 'desc-input';
+descLabel.textContent = 'Description';
+modalDescContainer.appendChild(descLabel);
+
+// modal-container > modal > title-container > desc-input
+const descInput = document.createElement('input');
+descInput.classList.add('modal-desc-input');
+descInput.id = 'desc-input';
+descInput.type = 'text';
+descInput.name = 'project-desc';
+descInput.required = false;
+modalDescContainer.appendChild(descInput);
+
+// modal-container > modal > cancel-btn;
+const cancelBtn = document.createElement('button');
+cancelBtn.classList.add('cancel-btn');
+cancelBtn.textContent = 'Cancel';
+modal.appendChild(cancelBtn);
+
+// modal-container > modal > submit-btn;
+const submitBtn = document.createElement('button');
+submitBtn.classList.add('submit-btn');
+submitBtn.textContent = 'Submit';
+modal.appendChild(submitBtn);
+
 // project-container
 const projectContainer = document.createElement('div');
 projectContainer.id = 'project-container';
@@ -125,10 +190,6 @@ function renderTaskListItem() {
     
     const deleteBtn = document.createElement('button');
     deleteBtn.classList.add('delete-btn');
-
-    // i am here
-    // then need to add modal when new project is clicked so can input name and description of project
-    // then need to render task title (give id="task-title"), subtitle (give id="task-subtitle"), and list of tasks for each project
 
     taskListItem.appendChild(taskCompletionBtn);
     taskListItem.appendChild(taskText);
