@@ -126,6 +126,10 @@ function renderTaskListItem() {
     const deleteBtn = document.createElement('button');
     deleteBtn.classList.add('delete-btn');
 
+    // i am here
+    // then need to add modal when new project is clicked so can input name and description of project
+    // then need to render task title (give id="task-title"), subtitle (give id="task-subtitle"), and list of tasks for each project
+
     taskListItem.appendChild(taskCompletionBtn);
     taskListItem.appendChild(taskText);
     taskListItem.appendChild(deleteBtn);
@@ -137,11 +141,16 @@ function renderTaskListItem() {
 try {
     newTaskBtn.addEventListener('click', () => {
         const { taskListItem, taskCompletionBtn, taskText, deleteBtn } = renderTaskListItem();
+        
         taskCompletionBtn.addEventListener('click', () => {
             taskListItem.classList.toggle('checked');
             taskCompletionBtn.classList.toggle('task-completion-btn-checked');
             taskText.classList.toggle('task-text-checked');
             deleteBtn.classList.toggle('delete-btn-checked');
+        });
+
+        deleteBtn.addEventListener('click', (e) => {
+            e.target.parentElement.remove();
         });
     });
 }
