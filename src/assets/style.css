@@ -39,6 +39,7 @@ button:hover {
 }
 #project-list li:hover {
     background-color: lightgrey;
+    cursor: pointer;;
 }
 #task-container {
     display: flex;

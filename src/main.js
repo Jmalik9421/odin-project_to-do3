@@ -177,19 +177,19 @@ optionsContainer.appendChild(optionsBtn);
 
 // task-container > title-container > title-container-secondary > options-container > options-menu
 const optionsMenu = document.createElement('div');
-optionsMenu.classList.add('options-menu', 'hide'); // hide by default
+optionsMenu.classList.add('options-menu', 'hide');
 optionsContainer.appendChild(optionsMenu);
 
 // task-container > title-container > title-container-secondary > options-container > options-menu > edit-btn
 const optionsEditBtn = document.createElement('button');
-optionsEditBtn.classList.add('hide'); // hide by default
+optionsEditBtn.classList.add('hide');
 optionsEditBtn.id = 'options-edit-btn';
 optionsEditBtn.textContent = 'Edit';
 optionsMenu.appendChild(optionsEditBtn);
 
 // task-container > title-container > title-container-secondary > options-container > options-menu > delete-btn
 const optionsDeleteBtn = document.createElement('button');
-optionsDeleteBtn.classList.add('hide'); // hide by default
+optionsDeleteBtn.classList.add('hide');
 optionsDeleteBtn.id = 'options-delete-btn';
 optionsDeleteBtn.textContent = 'Delete';
 optionsMenu.appendChild(optionsDeleteBtn);
@@ -258,4 +258,16 @@ try {
 }
 catch (err) {
     console.error('task-list-item does not exist');
+};
+
+try {
+    projectList.addEventListener('click', (e) => {
+        const project = e.target;
+
+        taskTitle.textContent = project.textContent;
+        subtitle.textContent = projects[project.textContent];
+    });
+}
+catch (err) {
+    console.error('no projects listed');
 };
