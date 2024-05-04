@@ -75,9 +75,9 @@ modal.appendChild(modalBtnContainer);
 const cancelBtn = document.createElement('button');
 cancelBtn.classList.add('cancel-btn', 'text-btn');
 cancelBtn.textContent = 'Cancel';
-cancelBtn.addEventListener('click', () => {
-    modalPrimaryContainer.classList.add('hide');
-});
+// cancelBtn.addEventListener('click', () => {
+//     modalPrimaryContainer.classList.add('hide');
+// });
 modalBtnContainer.appendChild(cancelBtn);
 
 // modal-primary-container > modal-container > modal > submit-btn;
@@ -109,19 +109,28 @@ const projectList = document.createElement('ul');
 projectList.id = 'project-list';
 projectContainer.appendChild(projectList);
 
-// project-container > new-project-btn | logic
-newProjectBtn.addEventListener('click', (e) => {
+// new-project functions
+function displayModal() {
     modalPrimaryContainer.classList.remove('hide');
-    // const projectListItem = document.createElement('li');
-    // projectListItem.textContent = 'My Project 1';
-    // projectList.appendChild(projectListItem);
+};
 
-    // i am here
-    // need to style modal
-    // then need to contain projectListItem generation and appendage into its own function which will be called when newProjectBtn is clicked
-    // then need to render task title and task description from the info submitted in modal
-    // then need to save all the information to local storage
-    // then need to get info from local storage so can serve different tasks for different projects
+function hideModal() {
+    modalPrimaryContainer.classList.add('hide');
+}
+
+function addProject() {
+    const projectListItem = document.createElement('li');
+    projectListItem.textContent = titleInput.value;
+    projectList.appendChild(projectListItem);
+    titleInput.value = '';
+    hideModal();
+};
+
+// project-container > new-project-btn | logic
+newProjectBtn.addEventListener('click', () => {
+    displayModal();
+    cancelBtn.addEventListener('click', hideModal);
+    submitBtn.addEventListener('click', addProject);
 });
 
 // task-container
