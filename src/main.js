@@ -119,12 +119,23 @@ function hideModal() {
 }
 
 function addProject() {
+    // add to projects obj
+    projects[titleInput.value] = descInput.value;
+    console.log(projects);
+    
+    // render html element
     const projectListItem = document.createElement('li');
     projectListItem.textContent = titleInput.value;
     projectList.appendChild(projectListItem);
+
+    // clear modal
     titleInput.value = '';
+    descInput.value = '';
     hideModal();
 };
+
+// projects obj
+let projects = {};
 
 // project-container > new-project-btn | logic
 newProjectBtn.addEventListener('click', () => {
