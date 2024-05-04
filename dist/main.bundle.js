@@ -221,7 +221,8 @@ button:hover {
 .hide {
     display: none;
 }
-.modal-container {
+
+.modal-primary-container{
     position: fixed;
     z-index: 1;
     left: 0;
@@ -231,10 +232,52 @@ button:hover {
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
 }
+.modal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
 .modal {
     display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 80%;
+    max-width: 1000px;
+    min-height: 30%;
     background-color: white;
-}`, "",{"version":3,"sources":["webpack://./src/assets/style.css"],"names":[],"mappings":"AAAA;IACI,SAAS;IACT,UAAU;IACV,sBAAsB;AAC1B;AACA;IACI,qBAAqB;AACzB;AACA;IACI,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,iBAAiB;AACrB;AACA;IACI,aAAa;IACb,sBAAsB;IACtB,eAAe;IACf,cAAc;IACd,mBAAmB;AACvB;AACA;IACI,iBAAiB;AACrB;AACA;IACI,WAAW;AACf;AACA;IACI,sBAAsB;IACtB,YAAY;IACZ,cAAc;IACd,aAAa;IACb,gBAAgB;IAChB,gBAAgB;IAChB,8CAA8C;AAClD;AACA;IACI,2BAA2B;AAC/B;AACA;IACI,aAAa;IACb,sBAAsB;IACtB,YAAY;IACZ,uBAAuB;IACvB,iBAAiB;IACjB,0CAA0C;AAC9C;AACA;IACI,WAAW;IACX,aAAa;IACb,sBAAsB;AAC1B;AACA;IACI,aAAa;IACb,mBAAmB;IACnB,UAAU;IACV,YAAY;IACZ,aAAa;IACb,gBAAgB;IAChB,sBAAsB;IACtB,kBAAkB;AACtB;AACA;IACI,2BAA2B;AAC/B;AACA;IACI,mBAAmB;IACnB,YAAY;IACZ,aAAa;IACb,sBAAsB;IACtB,6BAA6B;AACjC;AACA;IACI,2BAA2B;AAC/B;AACA;IACI,YAAY;IACZ,aAAa;IACb,yDAA6C;IAC7C,sBAAsB;IACtB,2BAA2B;IAC3B,YAAY;AAChB;AACA;IACI,6BAA6B;AACjC;AACA;IACI,6BAA6B;AACjC;AACA;IACI,iBAAiB;IACjB,YAAY;IACZ,aAAa;IACb,yDAA6C;IAC7C,sBAAsB;IACtB,2BAA2B;IAC3B,6BAA6B;IAC7B,aAAa;IACb,YAAY;AAChB;AACA;IACI,yDAA4C;AAChD;;AAEA;IACI,YAAY;IACZ,aAAa;AACjB;AACA;IACI,uBAAuB;IACvB,6BAA6B;IAC7B,YAAY;IACZ,mBAAmB;IACnB,sBAAsB;IACtB,eAAe;IACf,eAAe;AACnB;AACA;IACI,2BAA2B;AAC/B;AACA;IACI,kBAAkB;IAClB,eAAe;AACnB;AACA;IACI,gBAAgB;IAChB,gBAAgB;IAChB,yBAAyB;AAC7B;AACA;IACI,aAAa;IACb,iBAAiB;IACjB,sBAAsB;IACtB,kBAAkB;IAClB,eAAe;AACnB;AACA;IACI,aAAa;IACb,gBAAgB;AACpB;AACA;IACI,iBAAiB;IACjB,gBAAgB;AACpB;AACA;IACI,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;AACA;IACI,cAAc;IACd,eAAe;IACf,yDAAoD;IACpD,sBAAsB;IACtB,2BAA2B;IAC3B,4BAA4B;AAChC;AACA;IACI,yDAAqD;IACrD,sBAAsB,EAAE,2FAA2F;AACvH;AACA;IACI,aAAa;IACb,sBAAsB;IACtB,uBAAuB;IACvB,kBAAkB;IAClB,SAAS;IACT,SAAS;AACb;AACA;IACI,gBAAgB;IAChB,mBAAmB;IACnB,cAAc;IACd,uBAAuB;IACvB,aAAa;IACb,YAAY;AAChB;AACA;IACI,2BAA2B;AAC/B;AACA;IACI,aAAa;AACjB;AACA;IACI,eAAe;IACf,UAAU;IACV,OAAO;IACP,MAAM;IACN,WAAW;IACX,YAAY;IACZ,cAAc;IACd,oCAAoC;AACxC;AACA;IACI,aAAa;IACb,uBAAuB;AAC3B","sourcesContent":["* {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\nul li {\n    list-style-type: none;\n}\nbutton:hover {\n    cursor: pointer;\n}\n\n#app-container {\n    display: flex;\n    justify-content: space-between;\n    min-height: 100vh;\n}\n#project-container {\n    display: flex;\n    flex-direction: column;\n    flex-basis: 20%;\n    max-width: 20%; \n    align-items: center;\n}\n#project-container > .title {\n    flex-basis: 1.5em;\n}\n#project-list {\n    width: 100%;\n}\n#project-list li {\n    background-color: cyan;\n    color: black;\n    padding: 0.5em;\n    margin: 0.1em;\n    font-weight: 500;\n    font-size: 1.1em;\n    font-family: 'Courier New', Courier, monospace;\n}\n#project-list li:hover {\n    background-color: lightgrey;\n}\n#task-container {\n    display: flex;\n    flex-direction: column;\n    flex-grow: 1;\n    align-items: flex-start;\n    padding-left: 2em;\n    background-color: rgba(242, 242, 242, 0.8);\n}\n#task-list {\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n}\n#task-list li {\n    display: flex;\n    align-items: center;\n    width: 80%;\n    padding: 1em;\n    margin: 0.1em;\n    font-size: 1.1em;\n    border: 1px solid grey;\n    border-radius: 5px;\n}\n.checked {\n    background-color: lightgrey;\n}\n.task-completion-btn {\n    justify-self: start;\n    width: 1.5em;\n    height: 1.5em;\n    border: 1px solid grey;\n    background-color: transparent;\n}\n.task-completion-btn:hover {\n    background-color: lightgrey;\n}\n.task-completion-btn-checked {\n    width: 1.5em;\n    height: 1.5em;\n    background-image: url('./imgs/checkmark.png');\n    background-size: cover;\n    background-position: center;\n    border: none;\n}\n.task-completion-btn-checked{\n    background-color: transparent;\n}\n.task-text-checked {\n    text-decoration: line-through;\n}\n.delete-btn {\n    justify-self: end;\n    width: 1.5em;\n    height: 1.5em;\n    background-image: url('./imgs/bin-black.png');\n    background-size: cover;\n    background-position: center;\n    background-color: transparent;\n    outline: none;\n    border: none;\n}\n.delete-btn-checked {\n    background-image: url('./imgs/bin-grey.png');\n}\n\n#task-list li p {\n    flex-grow: 1;\n    margin: 0 1em;\n}\n.text-btn {\n    border: 1px solid black;\n    background-color: transparent;\n    padding: 1em;\n    font-weight: bolder;\n    font-family: 'cursive';\n    margin: 0.5em 0;\n    min-width: 10em;\n}\n.text-btn:hover {\n    background-color: lightgray;\n}\n.title {\n    text-align: center;\n    margin: 0.5em 0;\n}\n.subtitle {\n    font-size: 1.3em;\n    font-weight: 500;\n    color: rgba(0, 0, 0, 0.7);\n}\n.title-container {\n    display: flex;\n    flex-basis: 1.5em;\n    flex-direction: column;\n    align-items: start;\n    max-height: 5em;\n}\n.title-container-secondary {\n    display: flex;\n    align-items: end;\n}\n.title-container-secondary > .title {\n    margin-top: 0.5em;\n    margin-bottom: 0;\n}\n.options-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    position: relative;\n}\n.options-btn {\n    min-width: 3em;\n    min-height: 3em;\n    background-image: url('./imgs/options-btn-grey.png');\n    background-size: cover;\n    background-position: center;\n    background-repeat: no-repeat;\n}\n.options-btn:hover {\n    background-image: url('./imgs/options-btn-black.png');\n    transform: scale(0.75); /* black png is bigger than grey png so appears larger, scaling down to make it same size */\n}\n.options-menu {\n    display: flex;\n    flex-direction: column;\n    border: 1px solid black;\n    position: absolute;\n    left: 1em;\n    top: 100%;\n}\n.options-menu button {\n    padding: 1em 2em;\n    font-weight: bolder;\n    font-size: 1em;\n    background-color: white;\n    outline: none;\n    border: none;\n}\n.options-menu button:hover {\n    background-color: lightgrey;\n}\n.hide {\n    display: none;\n}\n.modal-container {\n    position: fixed;\n    z-index: 1;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    overflow: auto;\n    background-color: rgba(0, 0, 0, 0.4);\n}\n.modal {\n    display: flex;\n    background-color: white;\n}"],"sourceRoot":""}]);
+    font-family: 'Courier New', Courier, monospace;
+    padding: 1em;
+}
+.modal-title-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+}
+.modal-title-input {
+    resize: none;
+    width: 100%;
+}
+.modal-desc-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+}
+.modal-desc-input {
+    width: 100%;
+    height: 5em;
+    resize: none;
+}
+.modal-btn-container {
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+}
+.cancel-btn, .submit-btn {
+    width: 10em;
+    margin: 0 1em;
+}`, "",{"version":3,"sources":["webpack://./src/assets/style.css"],"names":[],"mappings":"AAAA;IACI,SAAS;IACT,UAAU;IACV,sBAAsB;AAC1B;AACA;IACI,qBAAqB;AACzB;AACA;IACI,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,iBAAiB;AACrB;AACA;IACI,aAAa;IACb,sBAAsB;IACtB,eAAe;IACf,cAAc;IACd,mBAAmB;AACvB;AACA;IACI,iBAAiB;AACrB;AACA;IACI,WAAW;AACf;AACA;IACI,sBAAsB;IACtB,YAAY;IACZ,cAAc;IACd,aAAa;IACb,gBAAgB;IAChB,gBAAgB;IAChB,8CAA8C;AAClD;AACA;IACI,2BAA2B;AAC/B;AACA;IACI,aAAa;IACb,sBAAsB;IACtB,YAAY;IACZ,uBAAuB;IACvB,iBAAiB;IACjB,0CAA0C;AAC9C;AACA;IACI,WAAW;IACX,aAAa;IACb,sBAAsB;AAC1B;AACA;IACI,aAAa;IACb,mBAAmB;IACnB,UAAU;IACV,YAAY;IACZ,aAAa;IACb,gBAAgB;IAChB,sBAAsB;IACtB,kBAAkB;AACtB;AACA;IACI,2BAA2B;AAC/B;AACA;IACI,mBAAmB;IACnB,YAAY;IACZ,aAAa;IACb,sBAAsB;IACtB,6BAA6B;AACjC;AACA;IACI,2BAA2B;AAC/B;AACA;IACI,YAAY;IACZ,aAAa;IACb,yDAA6C;IAC7C,sBAAsB;IACtB,2BAA2B;IAC3B,YAAY;AAChB;AACA;IACI,6BAA6B;AACjC;AACA;IACI,6BAA6B;AACjC;AACA;IACI,iBAAiB;IACjB,YAAY;IACZ,aAAa;IACb,yDAA6C;IAC7C,sBAAsB;IACtB,2BAA2B;IAC3B,6BAA6B;IAC7B,aAAa;IACb,YAAY;AAChB;AACA;IACI,yDAA4C;AAChD;;AAEA;IACI,YAAY;IACZ,aAAa;AACjB;AACA;IACI,uBAAuB;IACvB,6BAA6B;IAC7B,YAAY;IACZ,mBAAmB;IACnB,sBAAsB;IACtB,eAAe;IACf,eAAe;AACnB;AACA;IACI,2BAA2B;AAC/B;AACA;IACI,kBAAkB;IAClB,eAAe;AACnB;AACA;IACI,gBAAgB;IAChB,gBAAgB;IAChB,yBAAyB;AAC7B;AACA;IACI,aAAa;IACb,iBAAiB;IACjB,sBAAsB;IACtB,kBAAkB;IAClB,eAAe;AACnB;AACA;IACI,aAAa;IACb,gBAAgB;AACpB;AACA;IACI,iBAAiB;IACjB,gBAAgB;AACpB;AACA;IACI,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;AACA;IACI,cAAc;IACd,eAAe;IACf,yDAAoD;IACpD,sBAAsB;IACtB,2BAA2B;IAC3B,4BAA4B;AAChC;AACA;IACI,yDAAqD;IACrD,sBAAsB,EAAE,2FAA2F;AACvH;AACA;IACI,aAAa;IACb,sBAAsB;IACtB,uBAAuB;IACvB,kBAAkB;IAClB,SAAS;IACT,SAAS;AACb;AACA;IACI,gBAAgB;IAChB,mBAAmB;IACnB,cAAc;IACd,uBAAuB;IACvB,aAAa;IACb,YAAY;AAChB;AACA;IACI,2BAA2B;AAC/B;AACA;IACI,aAAa;AACjB;;AAEA;IACI,eAAe;IACf,UAAU;IACV,OAAO;IACP,MAAM;IACN,WAAW;IACX,YAAY;IACZ,cAAc;IACd,oCAAoC;AACxC;AACA;IACI,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,WAAW;IACX,YAAY;AAChB;AACA;IACI,aAAa;IACb,sBAAsB;IACtB,6BAA6B;IAC7B,UAAU;IACV,iBAAiB;IACjB,eAAe;IACf,uBAAuB;IACvB,8CAA8C;IAC9C,YAAY;AAChB;AACA;IACI,aAAa;IACb,sBAAsB;IACtB,WAAW;AACf;AACA;IACI,YAAY;IACZ,WAAW;AACf;AACA;IACI,aAAa;IACb,sBAAsB;IACtB,WAAW;AACf;AACA;IACI,WAAW;IACX,WAAW;IACX,YAAY;AAChB;AACA;IACI,aAAa;IACb,uBAAuB;IACvB,WAAW;AACf;AACA;IACI,WAAW;IACX,aAAa;AACjB","sourcesContent":["* {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\nul li {\n    list-style-type: none;\n}\nbutton:hover {\n    cursor: pointer;\n}\n\n#app-container {\n    display: flex;\n    justify-content: space-between;\n    min-height: 100vh;\n}\n#project-container {\n    display: flex;\n    flex-direction: column;\n    flex-basis: 20%;\n    max-width: 20%; \n    align-items: center;\n}\n#project-container > .title {\n    flex-basis: 1.5em;\n}\n#project-list {\n    width: 100%;\n}\n#project-list li {\n    background-color: cyan;\n    color: black;\n    padding: 0.5em;\n    margin: 0.1em;\n    font-weight: 500;\n    font-size: 1.1em;\n    font-family: 'Courier New', Courier, monospace;\n}\n#project-list li:hover {\n    background-color: lightgrey;\n}\n#task-container {\n    display: flex;\n    flex-direction: column;\n    flex-grow: 1;\n    align-items: flex-start;\n    padding-left: 2em;\n    background-color: rgba(242, 242, 242, 0.8);\n}\n#task-list {\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n}\n#task-list li {\n    display: flex;\n    align-items: center;\n    width: 80%;\n    padding: 1em;\n    margin: 0.1em;\n    font-size: 1.1em;\n    border: 1px solid grey;\n    border-radius: 5px;\n}\n.checked {\n    background-color: lightgrey;\n}\n.task-completion-btn {\n    justify-self: start;\n    width: 1.5em;\n    height: 1.5em;\n    border: 1px solid grey;\n    background-color: transparent;\n}\n.task-completion-btn:hover {\n    background-color: lightgrey;\n}\n.task-completion-btn-checked {\n    width: 1.5em;\n    height: 1.5em;\n    background-image: url('./imgs/checkmark.png');\n    background-size: cover;\n    background-position: center;\n    border: none;\n}\n.task-completion-btn-checked{\n    background-color: transparent;\n}\n.task-text-checked {\n    text-decoration: line-through;\n}\n.delete-btn {\n    justify-self: end;\n    width: 1.5em;\n    height: 1.5em;\n    background-image: url('./imgs/bin-black.png');\n    background-size: cover;\n    background-position: center;\n    background-color: transparent;\n    outline: none;\n    border: none;\n}\n.delete-btn-checked {\n    background-image: url('./imgs/bin-grey.png');\n}\n\n#task-list li p {\n    flex-grow: 1;\n    margin: 0 1em;\n}\n.text-btn {\n    border: 1px solid black;\n    background-color: transparent;\n    padding: 1em;\n    font-weight: bolder;\n    font-family: 'cursive';\n    margin: 0.5em 0;\n    min-width: 10em;\n}\n.text-btn:hover {\n    background-color: lightgray;\n}\n.title {\n    text-align: center;\n    margin: 0.5em 0;\n}\n.subtitle {\n    font-size: 1.3em;\n    font-weight: 500;\n    color: rgba(0, 0, 0, 0.7);\n}\n.title-container {\n    display: flex;\n    flex-basis: 1.5em;\n    flex-direction: column;\n    align-items: start;\n    max-height: 5em;\n}\n.title-container-secondary {\n    display: flex;\n    align-items: end;\n}\n.title-container-secondary > .title {\n    margin-top: 0.5em;\n    margin-bottom: 0;\n}\n.options-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    position: relative;\n}\n.options-btn {\n    min-width: 3em;\n    min-height: 3em;\n    background-image: url('./imgs/options-btn-grey.png');\n    background-size: cover;\n    background-position: center;\n    background-repeat: no-repeat;\n}\n.options-btn:hover {\n    background-image: url('./imgs/options-btn-black.png');\n    transform: scale(0.75); /* black png is bigger than grey png so appears larger, scaling down to make it same size */\n}\n.options-menu {\n    display: flex;\n    flex-direction: column;\n    border: 1px solid black;\n    position: absolute;\n    left: 1em;\n    top: 100%;\n}\n.options-menu button {\n    padding: 1em 2em;\n    font-weight: bolder;\n    font-size: 1em;\n    background-color: white;\n    outline: none;\n    border: none;\n}\n.options-menu button:hover {\n    background-color: lightgrey;\n}\n.hide {\n    display: none;\n}\n\n.modal-primary-container{\n    position: fixed;\n    z-index: 1;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    overflow: auto;\n    background-color: rgba(0, 0, 0, 0.4);\n}\n.modal-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 100%;\n    height: 100%;\n}\n.modal {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-evenly;\n    width: 80%;\n    max-width: 1000px;\n    min-height: 30%;\n    background-color: white;\n    font-family: 'Courier New', Courier, monospace;\n    padding: 1em;\n}\n.modal-title-container {\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n}\n.modal-title-input {\n    resize: none;\n    width: 100%;\n}\n.modal-desc-container {\n    display: flex;\n    flex-direction: column;\n    margin: 1em;\n}\n.modal-desc-input {\n    width: 100%;\n    height: 5em;\n    resize: none;\n}\n.modal-btn-container {\n    display: flex;\n    justify-content: center;\n    margin: 1em;\n}\n.cancel-btn, .submit-btn {\n    width: 10em;\n    margin: 0 1em;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -919,73 +962,83 @@ const appContainer = document.createElement('div');
 appContainer.id = 'app-container';
 body.appendChild(appContainer);
 
-// modal
+// modal-primary-container
+const modalPrimaryContainer = document.createElement('div');
+modalPrimaryContainer.classList.add('modal-primary-container', 'hide'); 
+appContainer.appendChild(modalPrimaryContainer);
+
+// modal-primary-container > modal-container
 const modalContainer = document.createElement('div');
-modalContainer.classList.add('modal-container', 'hide');
-appContainer.appendChild(modalContainer);
+modalContainer.classList.add('modal-container');
+modalPrimaryContainer.appendChild(modalContainer);
 
 // modal > modal-content
 const modal = document.createElement('div');
 modal.classList.add('modal');
 modalContainer.appendChild(modal);
 
-// modal-container > modal > title-container
+// modal-primary-container > modal-container > modal > title-container
 const modalTitleContainer = document.createElement('div');
 modalTitleContainer.classList.add('modal-title-container');
 modal.appendChild(modalTitleContainer);
 
-// modal-container > modal > title-container > title-label
+// modal-primary-container > modal-container > modal > title-container > title-label
 const titleLabel = document.createElement('label');
 titleLabel.classList.add('modal-title-label');
 titleLabel.for = 'title-input';
 titleLabel.textContent = 'Title';
 modalTitleContainer.appendChild(titleLabel);
 
-// modal-container > modal > title-container > title-input
-const titleInput = document.createElement('input');
+// modal-primary-container > modal-container > modal > title-container > title-input
+const titleInput = document.createElement('textarea');
 titleInput.classList.add('modal-title-input');
 titleInput.id = 'title-input';
-titleInput.type = 'text';
-titleInput.name = 'project-title';
-titleInput.placeholder = 'New project title...';
-titleInput.required = true;
+// titleInput.type = 'text';
+// titleInput.name = 'project-title';
+// titleInput.placeholder = 'New project title...';
+// titleInput.required = true;
 modalTitleContainer.appendChild(titleInput);
 
-// modal-container > modal > description-container
+// modal-primary-container > modal-container > modal > description-container
 const modalDescContainer = document.createElement('div');
 modalDescContainer.classList.add('modal-desc-container');
 modal.appendChild(modalDescContainer);
 
-// modal-container > modal > description-container > description-label
+// modal-primary-container > modal-container > modal > description-container > description-label
 const descLabel = document.createElement('label');
 descLabel.classList.add('modal-desc-label');
 descLabel.for = 'desc-input';
 descLabel.textContent = 'Description';
 modalDescContainer.appendChild(descLabel);
 
-// modal-container > modal > title-container > desc-input
-const descInput = document.createElement('input');
+// modal-primary-container > modal-container > modal > title-container > desc-input
+const descInput = document.createElement('textarea');
 descInput.classList.add('modal-desc-input');
-descInput.id = 'desc-input';
-descInput.type = 'text';
-descInput.name = 'project-desc';
-descInput.required = false;
+// descInput.id = 'desc-input';
+// descInput.type = 'text';
+// descInput.name = 'project-desc';
+// descInput.required = false;
 modalDescContainer.appendChild(descInput);
 
-// modal-container > modal > cancel-btn;
+// modal-primary-container > modal-container > modal > btn-container;
+const modalBtnContainer = document.createElement('div');
+modalBtnContainer.classList.add('modal-btn-container');
+modal.appendChild(modalBtnContainer);
+
+// modal-primary-container > modal-container > modal > cancel-btn;
 const cancelBtn = document.createElement('button');
-cancelBtn.classList.add('cancel-btn');
+cancelBtn.classList.add('cancel-btn', 'text-btn');
 cancelBtn.textContent = 'Cancel';
 cancelBtn.addEventListener('click', () => {
-    modalContainer.classList.add('hide');
+    modalPrimaryContainer.classList.add('hide');
 });
-modal.appendChild(cancelBtn);
+modalBtnContainer.appendChild(cancelBtn);
 
-// modal-container > modal > submit-btn;
+// modal-primary-container > modal-container > modal > submit-btn;
 const submitBtn = document.createElement('button');
-submitBtn.classList.add('submit-btn');
+submitBtn.classList.add('submit-btn', 'text-btn');
 submitBtn.textContent = 'Submit';
-modal.appendChild(submitBtn);
+modalBtnContainer.appendChild(submitBtn);
 
 // project-container
 const projectContainer = document.createElement('div');
@@ -1012,10 +1065,17 @@ projectContainer.appendChild(projectList);
 
 // project-container > new-project-btn | logic
 newProjectBtn.addEventListener('click', (e) => {
-    modalContainer.classList.remove('hide');
+    modalPrimaryContainer.classList.remove('hide');
     // const projectListItem = document.createElement('li');
     // projectListItem.textContent = 'My Project 1';
     // projectList.appendChild(projectListItem);
+
+    // i am here
+    // need to style modal
+    // then need to contain projectListItem generation and appendage into its own function which will be called when newProjectBtn is clicked
+    // then need to render task title and task description from the info submitted in modal
+    // then need to save all the information to local storage
+    // then need to get info from local storage so can serve different tasks for different projects
 });
 
 // task-container

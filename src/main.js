@@ -8,73 +8,83 @@ const appContainer = document.createElement('div');
 appContainer.id = 'app-container';
 body.appendChild(appContainer);
 
-// modal
+// modal-primary-container
+const modalPrimaryContainer = document.createElement('div');
+modalPrimaryContainer.classList.add('modal-primary-container', 'hide'); 
+appContainer.appendChild(modalPrimaryContainer);
+
+// modal-primary-container > modal-container
 const modalContainer = document.createElement('div');
-modalContainer.classList.add('modal-container', 'hide');
-appContainer.appendChild(modalContainer);
+modalContainer.classList.add('modal-container');
+modalPrimaryContainer.appendChild(modalContainer);
 
 // modal > modal-content
 const modal = document.createElement('div');
 modal.classList.add('modal');
 modalContainer.appendChild(modal);
 
-// modal-container > modal > title-container
+// modal-primary-container > modal-container > modal > title-container
 const modalTitleContainer = document.createElement('div');
 modalTitleContainer.classList.add('modal-title-container');
 modal.appendChild(modalTitleContainer);
 
-// modal-container > modal > title-container > title-label
+// modal-primary-container > modal-container > modal > title-container > title-label
 const titleLabel = document.createElement('label');
 titleLabel.classList.add('modal-title-label');
 titleLabel.for = 'title-input';
 titleLabel.textContent = 'Title';
 modalTitleContainer.appendChild(titleLabel);
 
-// modal-container > modal > title-container > title-input
-const titleInput = document.createElement('input');
+// modal-primary-container > modal-container > modal > title-container > title-input
+const titleInput = document.createElement('textarea');
 titleInput.classList.add('modal-title-input');
 titleInput.id = 'title-input';
-titleInput.type = 'text';
-titleInput.name = 'project-title';
-titleInput.placeholder = 'New project title...';
-titleInput.required = true;
+// titleInput.type = 'text';
+// titleInput.name = 'project-title';
+// titleInput.placeholder = 'New project title...';
+// titleInput.required = true;
 modalTitleContainer.appendChild(titleInput);
 
-// modal-container > modal > description-container
+// modal-primary-container > modal-container > modal > description-container
 const modalDescContainer = document.createElement('div');
 modalDescContainer.classList.add('modal-desc-container');
 modal.appendChild(modalDescContainer);
 
-// modal-container > modal > description-container > description-label
+// modal-primary-container > modal-container > modal > description-container > description-label
 const descLabel = document.createElement('label');
 descLabel.classList.add('modal-desc-label');
 descLabel.for = 'desc-input';
 descLabel.textContent = 'Description';
 modalDescContainer.appendChild(descLabel);
 
-// modal-container > modal > title-container > desc-input
-const descInput = document.createElement('input');
+// modal-primary-container > modal-container > modal > title-container > desc-input
+const descInput = document.createElement('textarea');
 descInput.classList.add('modal-desc-input');
-descInput.id = 'desc-input';
-descInput.type = 'text';
-descInput.name = 'project-desc';
-descInput.required = false;
+// descInput.id = 'desc-input';
+// descInput.type = 'text';
+// descInput.name = 'project-desc';
+// descInput.required = false;
 modalDescContainer.appendChild(descInput);
 
-// modal-container > modal > cancel-btn;
+// modal-primary-container > modal-container > modal > btn-container;
+const modalBtnContainer = document.createElement('div');
+modalBtnContainer.classList.add('modal-btn-container');
+modal.appendChild(modalBtnContainer);
+
+// modal-primary-container > modal-container > modal > cancel-btn;
 const cancelBtn = document.createElement('button');
-cancelBtn.classList.add('cancel-btn');
+cancelBtn.classList.add('cancel-btn', 'text-btn');
 cancelBtn.textContent = 'Cancel';
 cancelBtn.addEventListener('click', () => {
-    modalContainer.classList.add('hide');
+    modalPrimaryContainer.classList.add('hide');
 });
-modal.appendChild(cancelBtn);
+modalBtnContainer.appendChild(cancelBtn);
 
-// modal-container > modal > submit-btn;
+// modal-primary-container > modal-container > modal > submit-btn;
 const submitBtn = document.createElement('button');
-submitBtn.classList.add('submit-btn');
+submitBtn.classList.add('submit-btn', 'text-btn');
 submitBtn.textContent = 'Submit';
-modal.appendChild(submitBtn);
+modalBtnContainer.appendChild(submitBtn);
 
 // project-container
 const projectContainer = document.createElement('div');
@@ -101,10 +111,17 @@ projectContainer.appendChild(projectList);
 
 // project-container > new-project-btn | logic
 newProjectBtn.addEventListener('click', (e) => {
-    modalContainer.classList.remove('hide');
+    modalPrimaryContainer.classList.remove('hide');
     // const projectListItem = document.createElement('li');
     // projectListItem.textContent = 'My Project 1';
     // projectList.appendChild(projectListItem);
+
+    // i am here
+    // need to style modal
+    // then need to contain projectListItem generation and appendage into its own function which will be called when newProjectBtn is clicked
+    // then need to render task title and task description from the info submitted in modal
+    // then need to save all the information to local storage
+    // then need to get info from local storage so can serve different tasks for different projects
 });
 
 // task-container
