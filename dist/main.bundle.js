@@ -996,10 +996,6 @@ modalTitleContainer.appendChild(titleLabel);
 const titleInput = document.createElement('textarea');
 titleInput.classList.add('modal-title-input');
 titleInput.id = 'title-input';
-// titleInput.type = 'text';
-// titleInput.name = 'project-title';
-// titleInput.placeholder = 'New project title...';
-// titleInput.required = true;
 modalTitleContainer.appendChild(titleInput);
 
 // modal-primary-container > modal-container > modal > description-container
@@ -1017,10 +1013,6 @@ modalDescContainer.appendChild(descLabel);
 // modal-primary-container > modal-container > modal > title-container > desc-input
 const descInput = document.createElement('textarea');
 descInput.classList.add('modal-desc-input');
-// descInput.id = 'desc-input';
-// descInput.type = 'text';
-// descInput.name = 'project-desc';
-// descInput.required = false;
 modalDescContainer.appendChild(descInput);
 
 // modal-primary-container > modal-container > modal > btn-container;
@@ -1032,9 +1024,6 @@ modal.appendChild(modalBtnContainer);
 const cancelBtn = document.createElement('button');
 cancelBtn.classList.add('cancel-btn', 'text-btn');
 cancelBtn.textContent = 'Cancel';
-// cancelBtn.addEventListener('click', () => {
-//     modalPrimaryContainer.classList.add('hide');
-// });
 modalBtnContainer.appendChild(cancelBtn);
 
 // modal-primary-container > modal-container > modal > submit-btn;
@@ -1067,12 +1056,19 @@ projectList.id = 'project-list';
 projectContainer.appendChild(projectList);
 
 // new-project functions
-function displayModal() {
+function displayModal(submitType) {
     modalPrimaryContainer.classList.remove('hide');
+    submitBtn.classList.add(submitType);
 };
 
 function hideModal() {
     modalPrimaryContainer.classList.add('hide');
+    
+    if (submitBtn.classList.contains('add-project')) {
+        submitBtn.classList.remove('add-project');
+    } else if (submitBtn.classList.contains('edit-project')) {
+        submitBtn.classList.remove('edit-project');
+    };
 }
 
 function addProject() {
@@ -1083,6 +1079,7 @@ function addProject() {
     // render html element
     const projectListItem = document.createElement('li');
     projectListItem.textContent = titleInput.value;
+    projectListItem.dataset.project = titleInput.value;
     projectList.appendChild(projectListItem);
 
     // clear modal
@@ -1096,9 +1093,13 @@ let projects = {};
 
 // project-container > new-project-btn | logic
 newProjectBtn.addEventListener('click', () => {
-    displayModal();
+    displayModal('add-project');
     cancelBtn.addEventListener('click', hideModal);
-    submitBtn.addEventListener('click', addProject);
+    submitBtn.addEventListener('click', () => {
+        if (submitBtn.classList.contains('add-project')) {
+            addProject();
+        };
+    });
 });
 
 // task-container
@@ -1197,6 +1198,38 @@ function renderTaskListItem() {
     return { taskListItem, taskCompletionBtn, taskText, deleteBtn };
 };
 
+function renderProject() {
+    projectList.addEventListener('click', (e) => {
+        const project = e.target;
+
+        taskTitle.textContent = project.textContent;
+        subtitle.textContent = projects[project.textContent];
+
+        optionsMenu.classList.add('hide');
+        optionsEditBtn.classList.add('hide');
+        optionsDeleteBtn.classList.add('hide');
+    });
+}
+
+function editProject() {
+        // add new key to projects obj
+        projects[titleInput.value] = descInput.value;
+        
+        // remove old key from project obj
+        delete projects[taskTitle.textContent];
+        console.log(projects);
+        
+        // update html elements
+        const projectListItem = document.querySelector(`[data-project="${taskTitle.textContent}"]`);
+        projectListItem.textContent = titleInput.value;
+        subtitle.textContent = descInput.value;
+    
+        // clear modal
+        titleInput.value = '';
+        descInput.value = '';
+        hideModal();
+}
+
 try {
     newTaskBtn.addEventListener('click', () => {
         const { taskListItem, taskCompletionBtn, taskText, deleteBtn } = renderTaskListItem();
@@ -1218,16 +1251,25 @@ catch (err) {
 };
 
 try {
-    projectList.addEventListener('click', (e) => {
-        const project = e.target;
-
-        taskTitle.textContent = project.textContent;
-        subtitle.textContent = projects[project.textContent];
-    });
+    renderProject();
 }
 catch (err) {
     console.error('no projects listed');
 };
+
+try {
+    optionsEditBtn.addEventListener('click', () => {
+        displayModal('edit-project');
+        submitBtn.addEventListener('click', () => {
+            if (submitBtn.classList.contains('edit-project')) {
+                editProject();
+            };
+        });
+    });
+    optionsDeleteBtn.addEventListener('click', console.log(`will delete project`));
+} catch (err) {
+    console.error('project does not exist');
+}
 })();
 
 /******/ })()
