@@ -125,6 +125,10 @@ function addProject() {
     projectListItem.dataset.project = titleInput.value;
     projectList.appendChild(projectListItem);
 
+    // update task-title and subtitle
+    taskTitle.textContent = titleInput.value;
+    subtitle.textContent = descInput.value;
+
     // clear modal
     titleInput.value = '';
     descInput.value = '';
@@ -241,38 +245,6 @@ function renderTaskListItem() {
     return { taskListItem, taskCompletionBtn, taskText, deleteBtn };
 };
 
-function renderProject() {
-    projectList.addEventListener('click', (e) => {
-        const project = e.target;
-
-        taskTitle.textContent = project.textContent;
-        subtitle.textContent = projects[project.textContent];
-
-        optionsMenu.classList.add('hide');
-        optionsEditBtn.classList.add('hide');
-        optionsDeleteBtn.classList.add('hide');
-    });
-}
-
-function editProject() {
-        // add new key to projects obj
-        projects[titleInput.value] = descInput.value;
-        
-        // remove old key from project obj
-        delete projects[taskTitle.textContent];
-        console.log(projects);
-        
-        // update html elements
-        const projectListItem = document.querySelector(`[data-project="${taskTitle.textContent}"]`);
-        projectListItem.textContent = titleInput.value;
-        subtitle.textContent = descInput.value;
-    
-        // clear modal
-        titleInput.value = '';
-        descInput.value = '';
-        hideModal();
-}
-
 try {
     newTaskBtn.addEventListener('click', () => {
         const { taskListItem, taskCompletionBtn, taskText, deleteBtn } = renderTaskListItem();
@@ -293,12 +265,54 @@ catch (err) {
     console.error('task-list-item does not exist');
 };
 
+// project-list | logic
+function renderProject() {
+    projectList.addEventListener('click', (e) => {
+        const project = e.target;
+
+        taskTitle.textContent = project.textContent;
+        subtitle.textContent = projects[project.textContent];
+
+        optionsMenu.classList.add('hide');
+        optionsEditBtn.classList.add('hide');
+        optionsDeleteBtn.classList.add('hide');
+    });
+}
+
 try {
     renderProject();
 }
 catch (err) {
     console.error('no projects listed');
 };
+
+// options-menu | logic
+function editProject() {
+    // add new key to projects obj
+    projects[titleInput.value] = descInput.value;
+    
+    // remove old key from project obj
+    delete projects[taskTitle.textContent];
+    console.log(projects);
+    
+    // update html elements
+    const projectListItem = document.querySelector(`[data-project="${taskTitle.textContent}"]`);
+    projectListItem.textContent = titleInput.value;
+    taskTitle.textContent = titleInput.value;
+    subtitle.textContent = descInput.value;
+
+    // clear modal
+    titleInput.value = '';
+    descInput.value = '';
+    hideModal();
+    optionsMenu.classList.add('hide');
+    optionsEditBtn.classList.add('hide');
+    optionsDeleteBtn.classList.add('hide');
+}
+
+
+
+
 
 try {
     optionsEditBtn.addEventListener('click', () => {
@@ -313,3 +327,10 @@ try {
 } catch (err) {
     console.error('project does not exist');
 }
+
+// i am here
+// need to clean the code and structure from line 224
+// then need to implement code for when default 'My Project' title and 'Rest and recreation' subtitle are edited, projects obj is not updated, no new project is added. Only the textContent for the title and subtitle should be changed 
+// then need to create a tasks obj and append this to the value of each project key in the projects obj
+// then need to create a input field when adding a new task. +new task button should be repurposed to the submit button. a new task should be rendered to the task list. the list of tasks should be saved to the tasks obj for that project
+
