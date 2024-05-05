@@ -98,6 +98,27 @@ const projectList = document.createElement('ul');
 projectList.id = 'project-list';
 projectContainer.appendChild(projectList);
 
+// project-container > project-list | logic
+function renderProject() {
+    projectList.addEventListener('click', (e) => {
+        const project = e.target;
+
+        taskTitle.textContent = project.textContent;
+        subtitle.textContent = projects[project.textContent];
+
+        optionsMenu.classList.add('hide');
+        optionsEditBtn.classList.add('hide');
+        optionsDeleteBtn.classList.add('hide');
+    });
+}
+
+try {
+    renderProject();
+}
+catch (err) {
+    console.error('no projects listed');
+};
+
 // new-project functions
 function displayModal(submitType) {
     modalPrimaryContainer.classList.remove('hide');
@@ -180,6 +201,13 @@ const optionsBtn = document.createElement('div');
 optionsBtn.classList.add('options-btn');
 optionsContainer.appendChild(optionsBtn);
 
+// task-container > title-container > title-container-secondary > options-container > options-btn | logic
+optionsBtn.addEventListener('click', () => {
+    optionsMenu.classList.toggle('hide');
+    optionsEditBtn.classList.toggle('hide');
+    optionsDeleteBtn.classList.toggle('hide');
+});
+
 // task-container > title-container > title-container-secondary > options-container > options-menu
 const optionsMenu = document.createElement('div');
 optionsMenu.classList.add('options-menu', 'hide');
@@ -192,6 +220,43 @@ optionsEditBtn.id = 'options-edit-btn';
 optionsEditBtn.textContent = 'Edit';
 optionsMenu.appendChild(optionsEditBtn);
 
+// task-container > title-container > title-container-secondary > options-container > options-menu > edit-btn | logic
+function editProject() {
+    // add new key to projects obj
+    projects[titleInput.value] = descInput.value;
+    
+    // remove old key from project obj
+    delete projects[taskTitle.textContent];
+    console.log(projects);
+    
+    // update html elements
+    const projectListItem = document.querySelector(`[data-project="${taskTitle.textContent}"]`);
+    projectListItem.textContent = titleInput.value;
+    taskTitle.textContent = titleInput.value;
+    subtitle.textContent = descInput.value;
+
+    // clear modal
+    titleInput.value = '';
+    descInput.value = '';
+    hideModal();
+    optionsMenu.classList.add('hide');
+    optionsEditBtn.classList.add('hide');
+    optionsDeleteBtn.classList.add('hide');
+};
+
+try {
+    optionsEditBtn.addEventListener('click', () => {
+        displayModal('edit-project');
+        submitBtn.addEventListener('click', () => {
+            if (submitBtn.classList.contains('edit-project')) {
+                editProject();
+            };
+        });
+    });
+} catch (err) {
+    console.error('project does not exist');
+};
+
 // task-container > title-container > title-container-secondary > options-container > options-menu > delete-btn
 const optionsDeleteBtn = document.createElement('button');
 optionsDeleteBtn.classList.add('hide');
@@ -199,12 +264,25 @@ optionsDeleteBtn.id = 'options-delete-btn';
 optionsDeleteBtn.textContent = 'Delete';
 optionsMenu.appendChild(optionsDeleteBtn);
 
-// task-container > options-btn | logic
-optionsBtn.addEventListener('click', () => {
-    optionsMenu.classList.toggle('hide');
-    optionsEditBtn.classList.toggle('hide');
-    optionsDeleteBtn.classList.toggle('hide');
-});
+// task-container > title-container > title-container-secondary > options-container > options-menu > delete-btn | logic
+function deleteProject() {
+    // delete key value pair from projects obj
+    delete projects[taskTitle.textContent];
+
+    // remove project from project-list
+    const projectListItem = document.querySelector(`[data-project="${taskTitle.textContent}"]`);
+    projectListItem.remove();
+
+    // reset task-title and subtitle to default
+    taskTitle.textContent = 'My Project';
+    subtitle.textContent = 'Rest and recreation';
+};
+
+try {
+    optionsDeleteBtn.addEventListener('click', deleteProject);
+} catch (err) {
+    console.error('project does not exist');
+};
 
 // task-conatiner > title-container > subtitle
 const subtitle = document.createElement('p');
@@ -218,11 +296,6 @@ newTaskBtn.id = 'new-task-btn';
 newTaskBtn.classList.add('text-btn');
 newTaskBtn.textContent = '+ NEW TASK';
 taskContainer.appendChild(newTaskBtn);
-
-// task-container > task-list
-const taskList = document.createElement('ul');
-taskList.id = 'task-list';
-taskContainer.appendChild(taskList);
 
 // task-container > new-task-btn | logic
 function renderTaskListItem() {
@@ -265,68 +338,12 @@ catch (err) {
     console.error('task-list-item does not exist');
 };
 
-// project-list | logic
-function renderProject() {
-    projectList.addEventListener('click', (e) => {
-        const project = e.target;
-
-        taskTitle.textContent = project.textContent;
-        subtitle.textContent = projects[project.textContent];
-
-        optionsMenu.classList.add('hide');
-        optionsEditBtn.classList.add('hide');
-        optionsDeleteBtn.classList.add('hide');
-    });
-}
-
-try {
-    renderProject();
-}
-catch (err) {
-    console.error('no projects listed');
-};
-
-// options-menu | logic
-function editProject() {
-    // add new key to projects obj
-    projects[titleInput.value] = descInput.value;
-    
-    // remove old key from project obj
-    delete projects[taskTitle.textContent];
-    console.log(projects);
-    
-    // update html elements
-    const projectListItem = document.querySelector(`[data-project="${taskTitle.textContent}"]`);
-    projectListItem.textContent = titleInput.value;
-    taskTitle.textContent = titleInput.value;
-    subtitle.textContent = descInput.value;
-
-    // clear modal
-    titleInput.value = '';
-    descInput.value = '';
-    hideModal();
-    optionsMenu.classList.add('hide');
-    optionsEditBtn.classList.add('hide');
-    optionsDeleteBtn.classList.add('hide');
-}
+// task-container > task-list
+const taskList = document.createElement('ul');
+taskList.id = 'task-list';
+taskContainer.appendChild(taskList);
 
 
-
-
-
-try {
-    optionsEditBtn.addEventListener('click', () => {
-        displayModal('edit-project');
-        submitBtn.addEventListener('click', () => {
-            if (submitBtn.classList.contains('edit-project')) {
-                editProject();
-            };
-        });
-    });
-    optionsDeleteBtn.addEventListener('click', console.log(`will delete project`));
-} catch (err) {
-    console.error('project does not exist');
-}
 
 // i am here
 // need to clean the code and structure from line 224
