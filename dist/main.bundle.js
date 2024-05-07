@@ -1090,6 +1090,10 @@ function hideModal() {
     } else if (submitBtn.classList.contains('edit-project')) {
         submitBtn.classList.remove('edit-project');
     };
+
+    optionsMenu.classList.add('hide');
+    optionsEditBtn.classList.add('hide');
+    optionsDeleteBtn.classList.add('hide');
 }
 
 function addProject() {
@@ -1215,6 +1219,7 @@ try {
                 editProject();
             };
         });
+        cancelBtn.addEventListener('click', hideModal);
     });
 } catch (err) {
     console.error('project does not exist');
