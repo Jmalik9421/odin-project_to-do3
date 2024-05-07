@@ -222,18 +222,24 @@ optionsMenu.appendChild(optionsEditBtn);
 
 // task-container > title-container > title-container-secondary > options-container > options-menu > edit-btn | logic
 function editProject() {
-    // add new key to projects obj
-    projects[titleInput.value] = descInput.value;
-    
-    // remove old key from project obj
-    delete projects[taskTitle.textContent];
-    console.log(projects);
-    
-    // update html elements
-    const projectListItem = document.querySelector(`[data-project="${taskTitle.textContent}"]`);
-    projectListItem.textContent = titleInput.value;
-    taskTitle.textContent = titleInput.value;
-    subtitle.textContent = descInput.value;
+    if (projects.length > 0) {
+        // add new key to projects obj
+        projects[titleInput.value] = descInput.value;
+        
+        // remove old key from project obj
+        delete projects[taskTitle.textContent];
+        console.log(projects);
+        
+        // update html elements
+        const projectListItem = document.querySelector(`[data-project="${taskTitle.textContent}"]`);
+        projectListItem.textContent = titleInput.value;
+        taskTitle.textContent = titleInput.value;
+        subtitle.textContent = descInput.value;
+    } else {
+        // update html elements
+        taskTitle.textContent = titleInput.value;
+        subtitle.textContent = descInput.value;
+    }
 
     // clear modal
     titleInput.value = '';
@@ -346,8 +352,9 @@ taskContainer.appendChild(taskList);
 
 
 // i am here
-// need to clean the code and structure from line 224
 // then need to implement code for when default 'My Project' title and 'Rest and recreation' subtitle are edited, projects obj is not updated, no new project is added. Only the textContent for the title and subtitle should be changed 
+//      i need to create a default project by the same name of 'My Project'. Therefore, the app loads with a project which you can edit / delete
+//      i need to implement logic to remove all children under task-container (if all projects are deleted) and to render them when atleast 1 project exists. 
 // then need to create a tasks obj and append this to the value of each project key in the projects obj
 // then need to create a input field when adding a new task. +new task button should be repurposed to the submit button. a new task should be rendered to the task list. the list of tasks should be saved to the tasks obj for that project
 
